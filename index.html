@@ -666,6 +666,21 @@
     border-radius: 8px;
     font-size: 16px;
 }
+.reservation-form input[type="date"],
+.reservation-form input[type="time"] {
+    width: 100%;
+    min-width: 0;
+    display: block;
+    box-sizing: border-box;
+    color: white;
+    color-scheme: dark;
+}
+
+.reservation-form input[type="date"]::-webkit-date-and-time-value,
+.reservation-form input[type="time"]::-webkit-date-and-time-value {
+    text-align: left;
+    min-height: 1.2em;
+}
 
 .reservation-form input:focus {
     outline: none;
@@ -1431,8 +1446,8 @@ nav ul.active {
 
     <form class="reservation-form">
         <input type="text" placeholder="Ime i prezime">
-        <input type="date">
-        <input type="time">
+       <input type="date" aria-label="Odaberi datum" required>
+       <input type="time" aria-label="Odaberi vrijeme" required>
         <input type="number" placeholder="Broj osoba" min="1">
 
         <button type="submit" class="button">Pošalji rezervaciju</button>
