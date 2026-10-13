@@ -108,4 +108,4 @@ app.post("/logout", (req, res) => {
 });
 app.listen(PORT, () => {
     console.log(`Server radi na http://localhost:${PORT}`);
-}(;
+});
