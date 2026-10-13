@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Tavola - Talijanski restoran</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        /* NAVIGACIJA */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f5a623;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 60px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("images/restaurant.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+       .hero h1 {
+    font-size: 72px;
+    line-height: 1.05;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span:first-child {
+    color: #f5a623;
+    font-family: Georgia, serif;
+    font-size: 1.15em;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.hero h1 span:last-child {
+    display: inline-block;
+    color: #f5a623;
+    font-size: 32px !important;
+    letter-spacing: 0;
+    font-weight: 300;
+}
+
+.small-text {
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: #f5a623;
+    font-weight: bold;
+}
+
+.hero-content > p:not(.small-text) {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.hero-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f5a623;
+    transition: 0.3s ease;
+}
+
+.hero-link span {
+    color: #f5a623;
+    margin-left: 8px;
+    transition: 0.3s ease;
+}
+
+.hero-link:hover {
+    color: #f5a623;
+}
+
+.hero-link:hover span {
+    margin-left: 14px;
+}
+
+.secondary {
+    background: transparent;
+    border: 2px solid #f5a623;
+}
+
+.secondary:hover {
+    background: #f5a623;
+}
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 16px 30px;
+
+            background: #f5a623;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #d88900;
+            transform: translateY(-3px);
+        }
+
+        /* SEKCIJE */
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        .section-divider {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    background: #111;
+    color: #aaa;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.section-divider i {
+    color: #f5a623;
+    font-style: normal;
+    font-size: 14px;
+}
+@media (max-width: 600px) {
+    .section-divider {
+        gap: 8px;
+        font-size: 9px;
+        letter-spacing: 1px;
+        padding: 0 5px;
+    }
+
+    .section-divider i {
+        font-size: 10px;
+    }
+}
+
+
+
+        /* O NAMA */
+
+        .about {
+    background: #181818;
+}
+
+.about-content {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.about-image {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+}
+
+.about-box {
+    grid-column: 2;
+    grid-row: 2;
+}
+.about-image {
+    flex: 1;
+    max-width: 480px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.about-text {
+    max-width: 650px;
+}
+
+.about-text .section-title {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.about-text p:not(.small-text) {
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-box {
+    min-width: 230px;
+    height: 230px;
+
+    border: 1px solid #f5a623;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #aaa;
+}
+
+.about-number {
+    color: #f5a623;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-info,
+.opening-hours {
+    background: #1a1a1a;
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid #292929;
+}
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.hours-row:last-child {
+    border-bottom: none;
+}
+
+.contact-item {
+    margin-bottom: 25px;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item h3 {
+    margin-bottom: 8px;
+}
+
+.contact-item p {
+    color: #aaa;
+}
+.contact-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #f5a623;
+}
+
+.opening-hours h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    color: #bbb;
+}
+
+.hours-row:last-child {
+    border-bottom: none;
+}
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+
+            font-size: 19px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+        .about-hero {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    background-image: url("images/about.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.58);
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 1100px;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-hero-text {
+    max-width: 700px;
+}
+
+.about-hero-text h2 {
+    font-size: 58px;
+    margin: 15px 0 25px;
+    color: #fff;
+}
+
+.about-hero-text p:not(.small-text) {
+    color: #eee;
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: 1px solid #f5a623;
+    padding-bottom: 8px;
+}
+
+.about-link span {
+    color: #f5a623;
+    margin-left: 8px;
+}
+
+.about-experience {
+    width: 190px;
+    height: 190px;
+    min-width: 190px;
+    border: 1px solid #f5a623;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.about-experience strong {
+    color: #f5a623;
+    font-size: 55px;
+}
+
+.about-experience span {
+    color: #ddd;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+        /* MENI */
+
+        .menu {
+            background: #111;
+        }
+
+        .menu-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+      .menu-card {
+    background: #111;
+    padding: 0 0 18px 0;
+    border-radius: 12px;
+    border: 1px solid #292929;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-6px);
+    border-color: #f5a623;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+.menu-card:hover .menu-image {
+    transform: scale(1.05);
+}
+.menu-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    border-color: #f5a623;
+}
+
+.menu-icon {
+    font-size: 42px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.menu-card h3 {
+    font-size: 21px;
+    margin: 20px 18px 10px;
+    color: #fff;
+}
+
+.menu-card p {
+    color: #999;
+    line-height: 1.6;
+    margin: 0 18px 18px;
+    font-size: 15px;
+}
+.menu-category {
+    grid-column: 1 / -1;
+    margin: 50px 0 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+}
+
+.menu-category h3 {
+    color: #f5a623;
+    font-size: 26px;
+    margin: 0;
+}
+
+.price {
+    color: #f5a623;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 18px;
+}
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .menu-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .menu-card p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #f5a623;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* KONTAKT */
+
+        .contact {
+            background: #111;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin: 12px;
+            color: #ddd;
+        }
+/* ANIMACIJA POČETNE */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    animation: fadeInUp 1s ease both;
+}
+
+.hero p {
+    animation: fadeInUp 1s ease 0.2s both;
+}
+.hero .button {
+    animation: fadeInUp 1s ease 0.4s both;
+}
+        /* FOOTER */
+
+        footer {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            padding: 30px;
+
+            background: #111;
+
+            color: #888;
+        }
+
+        /* MOBITEL */
+
+
+.reservation {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    background: #111;
+    padding: 100px 20px;
+}
+.reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reservation-form input {
+    padding: 16px;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.reservation-form input:focus {
+    outline: none;
+    border-color: #f5a623;
+}
+.success-message {
+    margin-top: 20px;
+    color: #4ade80;
+    font-size: 18px;
+    font-weight: bold;
+}
+        @media (max-width: 768px) {
+        .menu-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+}
+
+.filter-button {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+         .menu-toggle {
+    display: block;
+}
+nav ul {
+    display: none;
+}
+
+nav ul.active {
+    display: flex;
+    flex-direction: column;
+}
+nav ul.active {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #181818;
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+}
+
+            nav {
+                padding: 18px 20px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 100px 0px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+               .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text .section-title {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+    }
+   
+        }
+        .menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 auto 35px;
+}
+
+.filter-button {
+    background: #181818;
+    color: #aaa;
+    border: 1px solid #333;
+    padding: 12px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: #f5a623;
+    color: #111;
+    border-color: #f5a623;
+}
+#topButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #f5a623;
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 999;
+}
+.contact-container {
+    grid-template-columns: 1fr;
+}
+.menu-image {
+    height: 200px;
+    object-fit: cover;
+}
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #f5a623;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.social-links svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: #f5a623;
+    stroke-width: 2;
+}
+
+.social-links a:last-child svg {
+    fill: #f5a623;
+    stroke: none;
+}
+
+.social-links a:hover {
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .about-hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 22px;
+    }
+
+    .about-hero-text {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .about-hero-text h2 {
+        font-size: 42px;
+    }
+
+    .about-hero-text p:not(.small-text) {
+        font-size: 17px;
+    }
+
+    .about-experience {
+        width: 130px;
+        height: 130px;
+        min-width: 130px;
+        align-self: center;
+    }
+
+    .about-experience strong {
+        font-size: 38px;
+    }
+}
+@media (max-width: 600px) {
+    .menu .section-title {
+        margin-bottom: 15px;
+        font-size: 36px;
+    }
+
+    .menu .small-text {
+        text-align: center;
+        width: 100%;
+    }
+
+    .menu {
+        padding-top: 50px;
+    }
+}
+.footer {
+    background: #080808;
+    padding: 55px 8% 20px;
+    color: #ddd;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr;
+    gap: 40px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.footer-brand h2 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.footer-brand h2 span {
+    color: #f5a623;
+}
+
+.footer-brand p,
+.footer-column p {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.footer-column h3 {
+    color: #f5a623;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.footer-column a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover,
+.footer-bottom a:hover {
+    color: #f5a623;
+}
+
+.footer .social-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.footer .social-links a {
+    color: #f5a623;
+    text-decoration: none;
+}
+
+.footer-reservation {
+    margin-top: 18px;
+    color: #f5a623 !important;
+}
+
+.footer-bottom {
+    max-width: 1250px;
+    margin: 45px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #292929;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #888;
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .footer {
+        padding: 40px 24px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+}
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVIGACIJA -->
+
+    <nav>
+        <button class="menu-toggle">☰</button>
+
+        <div class="logo">
+            La Tavola
+        </div>
+
+        <ul>
+            <li>
+                <a href="#pocetna">Početna</a>
+            </li>
+
+            <li>
+                <a href="#onama">O nama</a>
+            </li>
+
+            <li>
+                <a href="#meni">Meni</a>
+            </li>
+
+            <li>
+                <a href="#kontakt">Kontakt</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+   <section class="hero" id="pocetna">
+
+    <div class="hero-content">
+
+        <p class="small-text">
+            DOBRODOŠLI U LA TAVOLU
+        </p>
+
+      <h1>
+   <span>La Tavola</span><br>
+<span>Talijanski restoran u srcu Požege</span>
+</h1>
+
+        
+
+       <div class="hero-buttons">
+
+    <a href="#meni" class="hero-link">
+        Pogledaj meni <span>→</span>
+    </a>
+
+    <a href="#rezervacija" class="hero-link">
+        Rezerviraj stol <span>→</span>
+    </a>
+
+</div>
+
+</section>
+<div class="section-divider">
+    <span>LA TAVOLA</span>
+    <i>✦</i>
+    <span>AUTENTIČNA ITALIJA</span>
+    <i>✦</i>
+    <span>POŽEGA</span>
+</div>
+
+
+
+    <!-- O NAMA -->
+
+  <section class="about about-hero" id="onama">
+
+    <div class="about-overlay"></div>
+
+    <div class="about-hero-content">
+
+        <div class="about-hero-text">
+
+            <p class="small-text">
+                NAŠA PRIČA
+            </p>
+
+            <h2>
+                Više od restorana
+            </h2>
+
+            <p>
+                La Tavola je mjesto gdje se ljubav prema talijanskoj kuhinji
+                pretvara u posebno iskustvo za svakog gosta.
+            </p>
+
+            <p>
+                Koristimo svježe namirnice, tradicionalne recepte i moderne
+                tehnike kako bismo stvorili jela puna okusa.
+            </p>
+
+            <a href="#kontakt" class="about-link">
+                Posjetite nas <span>→</span>
+            </a>
+
+        </div>
+
+        <div class="about-experience">
+            <strong>10+</strong>
+            <span>godina iskustva</span>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- MENI -->
+
+    <section class="menu" id="meni">
+      <div class="menu-filters">
+   <button type="button" class="filter-button active" data-filter="pizze">Pizze</button>
+<button type="button" class="filter-button" data-filter="tjestenine">Tjestenine</button>
+<button type="button" class="filter-button" data-filter="burgeri">Burgeri</button>
+<button type="button" class="filter-button" data-filter="glavna">Glavna jela</button>
+<button type="button" class="filter-button" data-filter="deserti">Deserti</button>
+</div>
+       
+
+    <p class="small-text">NAŠA PONUDA</p>
+
+    <h2 class="section-title">
+        Naša Ponuda
+    </h2>
+
+    <div class="menu-container">
+        <div class="menu-category">
+    <h3> Pizza</h3>
+</div>
+ 
+
+        <div class="menu-card" data-category="pizze">
+
+    <img src="images/pizza.jpg" alt="Pizza Margherita" class="menu-image">
+
+    
+
+    <h3>Pizza Margherita</h3>
+
+    <p>
+        Rajčica, mozzarella, svježi bosiljak
+        i ekstra djevičansko maslinovo ulje.
+    </p>
+
+    <div class="price">9,50 €</div>
+
+</div>
+        <div class="menu-card" data-category="pizze">
+            <img src="images/pizza-diavola.jpg" alt="Pizza Diavola" class="menu-image">
+            
+
+            <h3>Pizza Diavola</h3>
+
+            <p>
+                Rajčica, mozzarella, pikantna salama
+                i ljuta paprika.
+            </p>
+
+            <div class="price">12,50 €</div>
+        </div>
+        <div class="menu-category">
+    <h3> Tjestenina</h3>
+</div>
+
+
+       <div class="menu-card" data-category="tjestenine">
+
+    <img src="images/pasta-carbonara.jpg" alt="Pasta Carbonara" class="menu-image">
+
+  
+
+    <h3>Pasta Carbonara</h3>
+
+    <p>
+        Tradicionalna rimska carbonara s pancetom,
+        jajima i parmezanom.
+    </p>
+
+    <div class="price">11,50 €</div>
+
+</div>
+         <div class="menu-card" data-category="tjestenine">
+
+    <img src="images/pasta-pesto.jpg" alt="Pasta al Pesto" class="menu-image">
+
+ 
+
+    <h3>Pasta al Pesto</h3>
+
+    <p>
+        Svježi pesto od bosiljka, pinjola,
+        parmezana i maslinovog ulja.
+    </p>
+
+    <div class="price">10,50 €</div>
+
+</div>
+        <div class="menu-category">
+    <h3> Burgeri</h3>
+</div>
+
+<div class="menu-card" data-category="burgeri">
+
+    <img src="images/classic-burger.jpg" alt="Classic Burger" class="menu-image">
+
+    
+
+    <h3>Classic Burger</h3>
+
+    <p>
+        Sočno juneće meso, cheddar sir, salata,
+        rajčica i poseban umak.
+    </p>
+
+    <div class="price">9,50 €</div>
+
+</div>
+<div class="menu-card" data-category="burgeri">
+
+    <img src="images/bacon-burger.jpg" alt="Bacon Burger" class="menu-image">
+    
+
+    <h3>Bacon Burger</h3>
+
+    <p>
+        Juneće meso, hrskava slanina, cheddar,
+        karamelizirani luk i BBQ umak.
+    </p>
+
+    <div class="price">10,50 €</div>
+</div>
+
+<div class="menu-card" data-category="burgeri">
+
+    <img src="images/italian-burger.jpg" alt="Italian Burger" class="menu-image">
+
+    <span class="menu-icon">🇮🇹</span>
+
+    <h3>Italian Burger</h3>
+
+    <p>
+        Juneće meso, mozzarella, rukola,
+        rajčica i pesto umak.
+    </p>
+
+    <div class="price">11,00 €</div>
+
+</div>
+<div class="menu-category">
+    <h3> Glavna jela</h3>
+</div>
+
+
+
+        <div class="menu-card" data-category="glavna">
+            <img src="images/bistecca.jpg" alt="Bistecca Italiana" class="menu-image">
+            
+
+            <h3>Bistecca Italiana</h3>
+
+            <p>
+                Sočan odrezak vrhunske kvalitete
+                poslužen uz sezonski prilog.
+            </p>
+
+            <div class="price">18,00 €</div>
+        </div>
+        <div class="menu-card" data-category="glavna">
+            <img src="images/pollo-milanese.jpg" alt="Pollo alla Milanese" class="menu-image">
+    <span class="menu-icon"></span>
+
+    <h3>Pollo alla Milanese</h3>
+
+    <p>
+        Hrskava pileća prsa, parmezan,
+        limun i svježa salata.
+    </p>
+
+    <div class="price">14,50 €</div>
+</div>
+
+<div class="menu-card" data-category="glavna">
+    <img src="images/branzino.jpg" alt="Branzino al Limone" class="menu-image">
+    <span class="menu-icon"></span>
+
+    <h3>Branzino al Limone</h3>
+
+    <p>
+        Svježi brancin, limun, maslinovo ulje,
+        začinsko bilje i povrće.
+    </p>
+
+    <div class="price">17,50 €</div>
+</div>
+<div class="menu-category">
+    <h3> Deserti</h3>
+</div>
+
+
+        <div class="menu-card" data-category="deserti">
+            <img src="images/tiramisu.jpg" alt="Tiramisu" class="menu-image">
+            
+
+            <h3>Tiramisu</h3>
+
+            <p>
+                Klasični talijanski desert
+                s mascarponeom, kavom i kakaom.
+            </p>
+
+            <div class="price">6,00 €</div>
+        </div>
+        <div class="menu-card" data-category="deserti">
+            <img src="images/chocolate-fondant.jpg" alt="Chocolate Fondant" class="menu-image">
+    
+
+    <h3>Chocolate Fondant</h3>
+
+    <p>
+        Topli čokoladni kolač s tekućom čokoladnom sredinom
+        i kuglicom sladoleda od vanilije.
+    </p>
+
+    <div class="price">7,00 €</div>
+</div>
+
+ <div class="menu-card" data-category="deserti">
+    <img src="images/panna-cotta.jpg" alt="Panna Cotta" class="menu-image">
+    
+    <h3>Panna Cotta</h3>
+
+    <p>
+        Kremasti talijanski desert s vanilijom,
+        preljevom od šumskog voća i svježim voćem.
+    </p>
+
+    <div class="price">6,00 €</div>
+</div>
+
+
+    </div>
+
+
+    <!-- KONTAKT -->
+
+   <section class="contact" id="kontakt">
+
+    <p class="small-text">
+        KONTAKT
+    </p>
+
+    <h2 class="section-title">
+        Posjetite nas
+    </h2>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+                <h3>📍 Adresa</h3>
+                <p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Ulica+Grada+15,+Požega" target="_blank">
+        Ulica Grada 15, Požega
+    </a>
+</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>📞 Telefon</h3>
+                <p><a href="tel:+385991234567">+385 99 123 4567</a></p>
+            </div>
+
+            <div class="contact-item">
+                <h3>✉️ Email</h3>
+               <p><a href="mailto:info@latavola.hr">info@latavola.hr</a></p>
+            </div>
+
+        </div>
+
+
+        <div class="opening-hours">
+
+            <h3>Radno vrijeme</h3>
+
+            <div class="hours-row">
+                <span>Ponedjeljak – Petak</span>
+                <span>11:00 – 23:00</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Subota</span>
+                <span>12:00 – 00:00</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Nedjelja</span>
+                <span>Zatvoreno</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <a href="tel:+385991234567" class="button">
+        📞 Nazovi restoran
+    </a>
+
+</section>
+<section class="reservation" id="rezervacija">
+    <h2 class="section-title">Rezerviraj stol</h2>
+
+    <form class="reservation-form">
+        <input type="text" placeholder="Ime i prezime">
+        <input type="date">
+        <input type="time">
+        <input type="number" placeholder="Broj osoba" min="1">
+
+        <button type="submit" class="button">Pošalji rezervaciju</button>
+        <p class="success-message" id="successMessage"></p>
+    </form>
+</section>
+
+    <!-- FOOTER -->
+
+   <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <h2>La Tavola<span>.</span></h2>
+            <p>Autentični talijanski okusi u srcu Požege.</p>
+
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">Instagram ↗</a>
+                <a href="#" aria-label="Facebook">Facebook ↗</a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>NAVIGACIJA</h3>
+            <a href="#pocetna">Početna</a>
+            <a href="#onama">O nama</a>
+            <a href="#meni">Jelovnik</a>
+            <a href="#rezervacija">Rezervacije</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>KONTAKT</h3>
+            <p>📍 Požega, Hrvatska</p>
+            <a href="tel:+38500000000">📞 Broj telefona</a>
+            <a href="mailto:info@latavola.hr">✉️ E-mail</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>RADNO VRIJEME</h3>
+            <p>Ponedjeljak – Petak</p>
+            <p>Subota</p>
+            <p>Nedjelja</p>
+            <a class="footer-reservation" href="#rezervacija">
+                Rezerviraj stol →
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 La Tavola. Sva prava pridržana.</p>
+        <a href="#pocetna">Povratak na vrh ↑</a>
+    </div>
+</footer>
+
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const navUl = document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", function() {
+    navUl.classList.toggle("active");
+});
+
+const reservationForm = document.querySelector(".reservation-form");
+const successMessage = document.querySelector("#successMessage");
+
+reservationForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = reservationForm.querySelector('input[type="text"]').value;
+    const date = reservationForm.querySelector('input[type="date"]').value;
+    const time = reservationForm.querySelector('input[type="time"]').value;
+    const people = reservationForm.querySelector('input[type="number"]').value;
+
+    if (name === "" || date === "" || time === "" || people === "") {
+        alert("Molimo ispuni sva polja! ⚠️");
+        return;
+    }
+
+    fetch("/rezervacija", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            date: date,
+            time: time,
+            people: people
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+  successMessage.textContent = data.message;
+        reservationForm.reset();
+    });
+});
+const filterButtons = document.querySelectorAll(".filter-button");
+const menuCards = document.querySelectorAll(".menu-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", function() {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        const category = this.dataset.filter;
+        document.querySelector("#meni").scrollIntoView({
+    behavior: "smooth"
+});
+
+        menuCards.forEach(card => {
+            if (card.dataset.category === category) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+
+</script>
+
+</body>
+
+</html>
